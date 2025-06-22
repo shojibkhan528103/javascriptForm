@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Check Form Data</title>
+</head>
+
+<body>
+    <div class="rounded shadow p-5 container mt-5">
+        <h1 class="mb-5 text-center border-bottom">Test Form Data</h1>
+        <form id="formData" method="post" enctype="multipart/form-data">
+            <input type="text" class="form-control form-control-sm m-2" name="input1">
+            <input type="text" class="form-control form-control-sm m-2" class="form-control form-control-sm m-2"
+                name="input2">
+            <input type="text" class="form-control form-control-sm m-2" name="input3">
+            <input type="text" class="form-control form-control-sm m-2" name="input4">
+            <input type="text" class="form-control form-control-sm m-2" name="input5">
+            <input type="text" class="form-control form-control-sm m-2" name="input6">
+            <div class="text-center my-5">
+                <input type="submit" value="Submit" class="btn btn-sm border rounded shadow-sm w-25 text-center">
+            </div>
+        </form>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var form = document.getElementById('formData');
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(form);
+                    const name = formData.get('input1');
+
+                    if (!name) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Name field is required!',
+                        });
+                        return;
+                    }
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Do you want to submit this form?",
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, submit it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire(
+                                'Submitted!',
+                                'Your form has been submitted.',
+                                'success'
+                            );
+                            form.reset();
+                        }
+                    });
+                });
+            });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
