@@ -17,13 +17,13 @@
     <div class="rounded shadow p-5 container mt-5">
         <h1 class="mb-5 text-center border-bottom">Test Form Data</h1>
         <form id="formData" method="post" enctype="multipart/form-data">
-            <input type="text" class="form-control form-control-sm m-2" name="input1">
-            <input type="text" class="form-control form-control-sm m-2" class="form-control form-control-sm m-2"
-                name="input2">
-            <input type="text" class="form-control form-control-sm m-2" name="input3">
-            <input type="text" class="form-control form-control-sm m-2" name="input4">
-            <input type="text" class="form-control form-control-sm m-2" name="input5">
-            <input type="text" class="form-control form-control-sm m-2" name="input6">
+            <input type="text" class="form-control form-control-sm mb-2" name="input1" placeholder="input1">
+            <input type="text" class="form-control form-control-sm mb-2" class="form-control form-control-sm"
+                name="input2" placeholder="input2">
+            <input type="text" class="form-control form-control-sm mb-2" name="input3" placeholder="input3">
+            <input type="text" class="form-control form-control-sm mb-2" name="input4" placeholder="input4">
+            <input type="text" class="form-control form-control-sm mb-2" name="input5" placeholder="input5">
+            <input type="text" class="form-control form-control-sm mb-2" name="input6" placeholder="input6">
             <div class="text-center my-5">
                 <input type="submit" value="Submit" class="btn btn-sm border rounded shadow-sm w-25 text-center">
             </div>
@@ -37,6 +37,8 @@
                     e.preventDefault();
 
                     const formData = new FormData(form);
+
+
                     const name = formData.get('input1');
 
                     if (!name) {
